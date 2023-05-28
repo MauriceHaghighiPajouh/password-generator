@@ -20,6 +20,8 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
+    private boolean special;
+
     @Override
     public void start(Stage stage) {
         var scene = new Scene(new StackPane(), 640, 480);
@@ -33,6 +35,11 @@ public class App extends Application {
         Button button24 = new Button("test24");
         Button button32 = new Button("test32");
 
+        Generator generator = new Generator();
+
+        
+        
+
         button8.setPrefSize(200, 100);
         button16.setPrefSize(200, 100);
         button24.setPrefSize(200, 100);
@@ -43,7 +50,8 @@ public class App extends Application {
 
         TextField outputTextField = new TextField();
         outputTextField.setPrefWidth(200);
-
+        
+           //button functions
         Button copyButton = new Button("Kopieren");
         copyButton.setOnAction(e -> {
             String outputText = outputTextField.getText();
@@ -53,8 +61,12 @@ public class App extends Application {
             content.putString(outputText);
             clipboard.setContent(content);
 
-            System.out.println("Text kopiert: " + outputText);
         });
+        
+        button8.setOnAction(e -> outputTextField.setText(generator.generate(8, true)));
+        button16.setOnAction(e -> outputTextField.setText(generator.generate(16, true)));
+        button24.setOnAction(e -> outputTextField.setText(generator.generate(24, true)));
+        button32.setOnAction(e -> outputTextField.setText(generator.generate(32, true)));
 
         VBox vbox = new VBox();
         vbox.getChildren().addAll(hbox, outputTextField, copyButton);
@@ -70,10 +82,11 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+
         launch();
 
-        Generator generator = new Generator();
-
     }
+    //_Oirbzg80BTvZ?WV&t8p&8agyAk+Uf_%
+    //@isVocasR2+$pEUNkwpggex8
 
 }

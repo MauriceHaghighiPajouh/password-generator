@@ -37,7 +37,6 @@ public class Generator {
             
         }
         
-        System.out.println(sb.toString());
         return sb.toString();
 
     }
