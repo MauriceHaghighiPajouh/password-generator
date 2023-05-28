@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -35,23 +36,25 @@ public class App extends Application {
         Button button24 = new Button("test24");
         Button button32 = new Button("test32");
 
+        CheckBox specialCheckBox = new CheckBox("Spezial\nzeichen");
+        specialCheckBox.setOnAction(e -> {
+            special = specialCheckBox.isSelected();
+        });
+
         Generator generator = new Generator();
 
-        
-        
-
-        button8.setPrefSize(200, 100);
-        button16.setPrefSize(200, 100);
-        button24.setPrefSize(200, 100);
-        button32.setPrefSize(200, 100);
+        button8.setPrefSize(140, 80);
+        button16.setPrefSize(140, 80);
+        button24.setPrefSize(140, 80);
+        button32.setPrefSize(140, 80);
 
         HBox hbox = new HBox();
-        hbox.getChildren().addAll(button8, button16, button24, button32);
+        hbox.getChildren().addAll(button8, button16, button24, button32, specialCheckBox);
 
         TextField outputTextField = new TextField();
         outputTextField.setPrefWidth(200);
-        
-           //button functions
+
+        //button functions
         Button copyButton = new Button("Kopieren");
         copyButton.setOnAction(e -> {
             String outputText = outputTextField.getText();
@@ -62,11 +65,11 @@ public class App extends Application {
             clipboard.setContent(content);
 
         });
-        
-        button8.setOnAction(e -> outputTextField.setText(generator.generate(8, true)));
-        button16.setOnAction(e -> outputTextField.setText(generator.generate(16, true)));
-        button24.setOnAction(e -> outputTextField.setText(generator.generate(24, true)));
-        button32.setOnAction(e -> outputTextField.setText(generator.generate(32, true)));
+
+        button8.setOnAction(e -> outputTextField.setText(generator.generate(8, special)));
+        button16.setOnAction(e -> outputTextField.setText(generator.generate(16, special)));
+        button24.setOnAction(e -> outputTextField.setText(generator.generate(24, special)));
+        button32.setOnAction(e -> outputTextField.setText(generator.generate(32, special)));
 
         VBox vbox = new VBox();
         vbox.getChildren().addAll(hbox, outputTextField, copyButton);
@@ -86,7 +89,5 @@ public class App extends Application {
         launch();
 
     }
-    //_Oirbzg80BTvZ?WV&t8p&8agyAk+Uf_%
-    //@isVocasR2+$pEUNkwpggex8
 
 }
