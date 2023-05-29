@@ -124,7 +124,8 @@ public class App extends Application {
         VBox vbox = new VBox();
         vbox.getChildren().addAll(hbox, outputTextField, copyButton);
         vbox.setSpacing(10);
-
+        
+        //root
         BorderPane root = new BorderPane();
         root.setTop(vbox2);
         root.setBottom(vbox);
