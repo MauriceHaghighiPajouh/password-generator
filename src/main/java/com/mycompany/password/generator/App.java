@@ -38,38 +38,42 @@ public class App extends Application {
         // Überschrift
         Label label = new Label("Decode / Encode");
         label.setFont(new Font(20));
-        
 
         // TextField
         TextField textField = new TextField();
+        TextField textFieldOutput = new TextField();
+        textFieldOutput.setEditable(false);
         textField.setPrefSize(300, 30);
+        textFieldOutput.setPrefWidth(150);
         textField.setPromptText("Enter the password you want to encode");
 
         // buttons for de or encoding
-        Button encodeButton = new Button("Decode");
-        Button decodeButton = new Button("Encode");
+        Button encodeButton = new Button("Encode");
+        Button decodeButton = new Button("Decode");
 
         //action-listener
         encodeButton.setOnAction(e -> {
 
             String input = textField.getText();
             Encoder encoder = new Encoder();
-            textField.setText(encoder.encode(input));
+            textFieldOutput.setText(encoder.encode(input));
 
         });
 
         //action-listener
         decodeButton.setOnAction(e -> {
 
-            //TODO
+            String input = textField.getText();
+            Encoder encoder = new Encoder();
+            textFieldOutput.setText(encoder.decode(input));
         });
 
         HBox hbox2 = new HBox();
         hbox2.setSpacing(10);
-        hbox2.getChildren().addAll(textField, decodeButton, encodeButton);
+        hbox2.getChildren().addAll(textField, encodeButton, decodeButton);
 
         // add to vbox
-        vbox2.getChildren().addAll(label, hbox2);
+        vbox2.getChildren().addAll(label, hbox2, textFieldOutput);
 
         try {
             File file = new File("src/main/java/com/mycompany/password/generator/icon.png");
@@ -121,19 +125,17 @@ public class App extends Application {
         button16.setOnAction(e -> outputTextField.setText(generator.generate(16, special)));
         button24.setOnAction(e -> outputTextField.setText(generator.generate(24, special)));
         button32.setOnAction(e -> outputTextField.setText(generator.generate(32, special)));
-        
-        
-        
+
         //second vbox
         VBox vbox = new VBox();
         vbox.getChildren().addAll(hbox, outputTextField, copyButton);
         vbox.setSpacing(10);
-        
+
         //root
         BorderPane root = new BorderPane();
         root.setTop(vbox2);
         root.setBottom(vbox);
-        BorderPane.setMargin(vbox,new Insets(10,0,10,0));
+        BorderPane.setMargin(vbox, new Insets(10, 0, 10, 0));
 
         scene.setRoot(root);
 
