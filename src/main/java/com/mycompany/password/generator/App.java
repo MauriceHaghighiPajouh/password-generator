@@ -120,7 +120,7 @@ public class App extends Application {
         
         
         
-
+        //second vbox
         VBox vbox = new VBox();
         vbox.getChildren().addAll(hbox, outputTextField, copyButton);
         vbox.setSpacing(10);
