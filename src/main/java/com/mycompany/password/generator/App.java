@@ -38,10 +38,12 @@ public class App extends Application {
         // Überschrift
         Label label = new Label("Decode / Encode");
         label.setFont(new Font(20));
+        
 
         // TextField
         TextField textField = new TextField();
         textField.setPrefSize(300, 30);
+        textField.setPromptText("Enter the password you want to encode");
 
         // buttons for de or encoding
         Button encodeButton = new Button("Decode");
@@ -49,8 +51,10 @@ public class App extends Application {
 
         //action-listener
         encodeButton.setOnAction(e -> {
-            // TODO
+
             String input = textField.getText();
+            Encoder encoder = new Encoder();
+            textField.setText(encoder.encode(input));
 
         });
 

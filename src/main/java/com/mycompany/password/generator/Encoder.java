@@ -10,7 +10,15 @@ package com.mycompany.password.generator;
  */
 public class Encoder {
     
-    public String encode(){
+    public String encode(String input){
+        
+        //your own implementation goes here.
+
+        
+        return null;
+    }
+    
+      public String decode(String input){
         
         //your own implementation goes here.
 
