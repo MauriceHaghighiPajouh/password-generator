@@ -1,11 +1,11 @@
 package com.mycompany.password.generator;
 
+import java.io.File;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.Clipboard;
@@ -13,23 +13,30 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
+
     //special character checkbox
     private boolean special;
 
     @Override
     public void start(Stage stage) {
         var scene = new Scene(new StackPane(), 640, 480);
-
-        Image icon = new Image("file:icon.png");
-
-        stage.getIcons().add(icon);
+        stage.setTitle("Passwort Generator");
+        
+        try {
+            File file = new File("src/main/java/com/mycompany/password/generator/icon.png");
+            if (file.exists()) {
+                Image icon = new Image(file.toURI().toString());
+                stage.getIcons().add(icon);
+            } 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Button button8 = new Button("test8");
         Button button16 = new Button("test16");
