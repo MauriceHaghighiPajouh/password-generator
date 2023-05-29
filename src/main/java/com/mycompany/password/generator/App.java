@@ -29,7 +29,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         var scene = new Scene(new StackPane(), 640, 480);
-        stage.setTitle("Passwort Generator");
+        stage.setTitle("Password-Gen  @v1.0");
 
         VBox vbox2 = new VBox();
         vbox2.setSpacing(20);
@@ -86,10 +86,10 @@ public class App extends Application {
         }
 
         //Label label2 = new Label("");
-        Button button8 = new Button("test8");
-        Button button16 = new Button("test16");
-        Button button24 = new Button("test24");
-        Button button32 = new Button("test32");
+        Button button8 = new Button("8 characters");
+        Button button16 = new Button("16 characters");
+        Button button24 = new Button("24 characters");
+        Button button32 = new Button("32 characters");
 
         CheckBox specialCheckBox = new CheckBox("special \ncharacters");
         specialCheckBox.setOnAction(e -> {
